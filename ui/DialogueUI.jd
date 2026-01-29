@@ -1,0 +1,6 @@
+extends Control
+
+func show_memory(memory_dict):
+    $Title.text = memory_dict.get("title", "Memory")
+    $Body.text = memory_dict.get("text", "")
+    visible = true
