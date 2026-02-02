@@ -1,6 +1,0 @@
-{
-  "actions": [
-    { "id": "heal_01", "name": "Mend", "mp_cost": 5, "heal_amount": 20 },
-    { "id": "heal_02", "name": "Soothing Hymn", "mp_cost": 8, "heal_amount": 35 }
-  ]
-}

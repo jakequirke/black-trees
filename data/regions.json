@@ -1,9 +1,0 @@
-{
-  "regions": [
-    {
-      "id": "isle_001",
-      "name": "Whispering Shallows",
-      "shadows": [ "shadow_001" ]
-    }
-  ]
-}
