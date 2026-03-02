@@ -57,13 +57,12 @@ Vertical Slice Includes:
 Success Criteria:
 (Player can travel → explore → heal → unlock memory → save progress)
 
-Files / Scenes Needed:
-- Main scene:
-- Region scene:
-- Place scene:
-- Battle UI scene:
-- Dialogue / memory UI scene
-
+Base scenes needed:
+- World map
+- Region map (initial class extended to 12 region)
+- Place (numerous states navigated by PC by exiting edges of screen)
+- Battle
+- Memory scene (duplicated from 'Place' with a different colour pallette. Maybe black and white?)
 
 ## 3. COMBAT DESIGN (HEALING BATTLES)
 Design Intent:
@@ -72,7 +71,7 @@ Battles are not to add time to gameplay. Every battle matters where in the middl
 Battle Type:
 - Turn-based
 - Party size: 1
-- Enemy type: Shadow
+- Enemy type: Shadow (of various forms)
 
 Core Stats:
 - Player MP:
@@ -88,10 +87,9 @@ Turn Flow:
 Start → Player Turn → Choose Heal → Apply Heal → Resolve → Check Healed → End or Repeat
 
 Win Condition:
-(Shadow fully healed)
+(Shadow fully healed / uncorrupted)
 
 Loss / Failure Condition:
-(If applicable)
 1. Player becomes corrupted and turns to shadow.
 2. If above occurs, player will be saved by their protector who guides them from the start. 
 
@@ -105,12 +103,17 @@ Battle UI Elements:
 Progression Notes:
 (How healing actions improve or expand over time)
 - Start with single ability to heal
+- Talk - player can decide to talk on every turn to learn more about the shadow / person inside
 - Parry attacks and...
 - Timed attacks - if perfect increase healing.
-- Heal self of corruption from enemy
+- Corruption purge - Heal self of corruption from enemy
+- Purge overflow - overpurge converts excess corruption into a shared heal pool
+- Pacifying mend - can delay an enemy's turn
 - Enemy never 'attacks' but corrupts the PC.
+- Sacrificial mend
+- Manifest memory - show a shadow a related memory to them if you discover their identiy in a prior puzzle.
 - Heal all enemies
-- 
+- Corrupt self - make the ultimate sacrifice and take all the corruption from an enemy and give to self.
 
 
 ## 4. WORLD & REGION DESIGN
@@ -122,20 +125,27 @@ World Map Structure:
 - Travel method: Orb between shards. Walk across regions on each shard. Walk in each individual place.
 - Locked / unlocked areas: Each shard follows a metroidvania concept wherein not all areas are available on first visit to a shard. After unlocking new abilities the player can return to defeat more challening bosses or pass through increasingly difficult puzzles.
 
-Region Template:
-- Region ID:
-- Region Name:
+## 4.1 REGIONS:
+The Fanged Shard (Gæt) - will be the initial prototype area to perfect before continuing to the rest of the game.
+- Region ID: R01
 - Biome:
-- Key Landmarks:
-  1.
-  2.
-  3.
-- Shadows present:
-- Place screens:
-- Visual / mood notes:
+- Places:
+  1. Village square
+    1.1. Main square
+    1.2. The Crooked Ox
+    1.3. Reeves' home
+    1.4. Homes of several villagers
+  2. PC's home
+  3. Jonas' home
+  4. The edge of the wilds (forest of black trees)
+  5. ____'s home (woman)
+- Shadows present: PC's father, Mathias, Mathias' wife, PC's best friend (Mathias' son), Orl (innkeeper), Reeves, Couple, Jonas (final boss of area), creature in the whilds (optional boss who is the PC's mother).
+- Puzzles / Investigation: each shadow has a connected item which is the only way to completely remove their corruption. If not used, the shadow will reveal a false memory and will return once disappeared after PC leaves and returns to same screen. It unlocks a new memory before revealing the final, true memory when mended.
+PC can also discover notes related to the shadow. In battle, the player must figure out which information matches to the shadow. If they choose the wrong information then the PC will be damaged and the shadow will become stronger. The PC will have to use contextual clues on the shadow's location to figure out which information links to shadow. E.g. notebook found in the tavern reveals Reeves was incredibly lonely in her house. A lone shadow is found in the house. Another example: Axe belonging to executioner but is actually the item associated with Mathias who is the last person to be executed with the axe. It is the trauma associated with the item that is part of the reason they are a shadow. The same with any notes that are found.
+- Visual / mood notes: Death Stranding (east). Iceland in summer
 
 
-## 5. PLACE SCREENS & PUZZLES
+## 5. PUZZLES / INVESTIGATIONS
 Place ID / Scene Name:
 
 Purpose:
@@ -192,10 +202,10 @@ Input Methods:
 - Mouse (optional)
 
 Core Controls:
-- Move:
-- Interact:
-- Menu:
-- Confirm / Cancel:
+- Move: WASD / Arrow keys (directions on controller)
+- Interact: Enter (X / A on controller)
+- Menu: M (Triangle / Y on controller)
+- Confirm / Cancel: X (O / B on controller)
 
 Battle UI Layout:
 (Describe or sketch textually)

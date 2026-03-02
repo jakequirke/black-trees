@@ -1,0 +1,197 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://scripts/exploration.gd" id="1_exp"]
+[ext_resource type="Texture2D" path="res://assets/player-placeholder.png" id="2_plr"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_plr"]
+[ext_resource type="Texture2D" path="res://assets/tileset-placeholder.png" id="4_tile"]
+[ext_resource type="Script" path="res://scripts/shadow_interactable.gd" id="5_shd"]
+[ext_resource type="Script" path="res://scripts/collectible_item.gd" id="6_itm"]
+[ext_resource type="Script" path="res://scripts/collectible_note.gd" id="7_note"]
+[ext_resource type="Script" path="res://scripts/dialogue_box.gd" id="8_dlg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(48, 48)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aa203"]
+texture = ExtResource("4_tile")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d7v64"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_aa203")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shadow"]
+size = Vector2(56, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_item"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_note"]
+size = Vector2(40, 40)
+
+[node name="Exploration" type="Node2D"]
+script = ExtResource("1_exp")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADx//f/AAAHAAQAAAD5//z/AAAHAAQAAAD4//z/AAAHAAQAAAD5//3/AAAHAAQAAAD5//7/AAAHAAQAAAD5////AAAHAAQAAAD6////AAAHAAQAAAD6/wAAAAAHAAQAAAD7/wAAAAAHAAQAAAD8/wAAAAAHAAQAAAD9/wAAAAAHAAQAAAD9////AAAHAAQAAAD9//7/AAAHAAQAAAD8//7/AAAHAAQAAAD7//3/AAAHAAQAAAD7//z/AAAHAAQAAAD6//z/AAAHAAQAAAD4//3/AAAHAAQAAAD4//7/AAAHAAQAAAD4////AAAHAAQAAAD5/wAAAAAHAAQAAAD7////AAAHAAQAAAD7//7/AAAHAAQAAAD6//7/AAAHAAQAAAD3//z/AAAHAAQAAAD3//3/AAAHAAQAAAD3//7/AAAHAAQAAAD3//v/AAAHAAQAAAD4//v/AAAHAAQAAAD5//v/AAAHAAQAAAD6//v/AAAHAAQAAAD7//v/AAAHAAQAAAD8//v/AAAHAAQAAAD9//r/AAAHAAQAAAD+//r/AAAHAAQAAAD///v/AAAHAAQAAAAAAPv/AAAHAAQAAAABAPv/AAAHAAQAAAACAPv/AAAHAAQAAAADAPv/AAAHAAQAAAADAPz/AAAHAAQAAAAEAPz/AAAHAAQAAAAFAPz/AAAHAAQAAAAGAPz/AAAHAAQAAAAHAP3/AAAHAAQAAAAGAP3/AAAHAAQAAAAFAP3/AAAHAAQAAAAEAP3/AAAHAAQAAAADAP3/AAAHAAQAAAACAP3/AAAHAAQAAAABAP3/AAAHAAQAAAAAAP3/AAAHAAQAAAD///3/AAAHAAQAAAD+//z/AAAHAAQAAAD9//z/AAAHAAQAAAD8//z/AAAHAAQAAAD9//v/AAAHAAQAAAD+//v/AAAHAAQAAAAEAPv/AAAHAAQAAAAFAPv/AAAHAAQAAAAHAPz/AAAHAAQAAAAIAPz/AAAHAAQAAAAJAPz/AAAHAAQAAAAKAPz/AAAHAAQAAAAJAP3/AAAHAAQAAAAIAP3/AAAHAAQAAAABAPz/AAAHAAQAAAAAAPz/AAAHAAQAAAD///z/AAAHAAQAAAD+//3/AAAHAAQAAAD3////AAAHAAQAAAD3/wAAAAAHAAQAAAD3/wEAAAAHAAQAAAD3/wIAAAAHAAQAAAD3/wMAAAAHAAQAAAD4/wMAAAAHAAQAAAD4/wQAAAAHAAQAAAD5/wQAAAAHAAQAAAD5/wMAAAAHAAQAAAD6/wMAAAAHAAQAAAD6/wIAAAAHAAQAAAD7/wIAAAAHAAQAAAD7/wEAAAAHAAQAAAD6/wEAAAAHAAQAAAD5/wIAAAAHAAQAAAD2/wMAAAAHAAQAAAD2/wIAAAAHAAQAAAD4/wEAAAAHAAQAAAD5/wEAAAAHAAQAAAD4/wIAAAAHAAQAAAD8/wEAAAAHAAQAAAD+/wAAAAAHAAQAAAD//wAAAAAHAAQAAAAAAP//AAAHAAQAAAABAP//AAAHAAQAAAACAP7/AAAHAAQAAAADAP7/AAAHAAQAAAAEAP7/AAAHAAQAAAAFAP7/AAAHAAQAAAAGAP7/AAAHAAQAAAAHAP7/AAAHAAQAAAAIAP7/AAAHAAQAAAAJAP7/AAAHAAQAAAAKAP7/AAAHAAQAAAALAP7/AAAHAAQAAAAMAP7/AAAHAAQAAAANAP7/AAAHAAQAAAAKAP//AAAHAAQAAAAJAP//AAAHAAQAAAAIAP//AAAHAAQAAAAHAP//AAAHAAQAAAAGAP//AAAHAAQAAAAFAP//AAAHAAQAAAAEAP//AAAHAAQAAAADAP//AAAHAAQAAAACAAAAAAAHAAQAAAABAAAAAAAHAAQAAAAAAAEAAAAHAAQAAAD//wEAAAAHAAQAAAD+/wEAAAAHAAQAAAD+/wIAAAAHAAQAAAD+/wMAAAAHAAQAAAD+/wQAAAAHAAQAAAD//wQAAAAHAAQAAAD//wUAAAAHAAQAAAAAEAQAAAAHAAQAAAABAAQAAAAHAAQAAAABAAMAAAAHAAQAAAACAAIAAAAHAAQAAAADAAEAAAAHAAQAAAAEAAAAAAAHAAQAAAABAAEAAAAHAAQAAAD//wIAAAAHAAQAAAD9/wQAAAAHAAQAAAD9/wUAAAAHAAQAAAD9/wMAAAAHAAQAAAD9/wIAAAAHAAQAAAD8/wIAAAAHAAQAAAD8/wMAAAAHAAQAAAD7/wMAAAAHAAQAAAADAAAAAAAHAAQAAAAJAAAAAAAHAAQAAAAIAAEAAAAHAAQAAAAHAAIAAAAHAAQAAAAGAAMAAAAHAAQAAAAFAAMAAAAHAAQAAAAEAAQAAAAHAAQAAAADAAQAAAAHAAQAAAAEAAMAAAAHAAQAAAAEAAIAAAAHAAQAAAAFAAEAAAAHAAQAAAAFAAAAAAAHAAQAAAAEAAEAAAAHAAQAAAADAAIAAAAHAAQAAAACAAMAAAAHAAQAAAADAAMAAAAHAAQAAAAGAAAAAAAHAAQAAAAGAAEAAAAHAAQAAAAGAAIAAAAHAAQAAAAFAAQAAAAHAAQAAAAFAAUAAAAHAAQAAAAGAAQAAAAHAAQAAAAHAAEAAAAHAAQAAAAHAAAAAAAHAAQAAAAEAAUAAAAHAAQAAAAHAAQAAAAHAAQAAAAIAAQAAAAHAAQAAAAIAAMAAAAHAAQAAAAJAAMAAAAHAAQAAAAJAAIAAAAHAAQAAAAJAAEAAAAHAAQAAAAIAAAAAAAHAAQAAAAHAAMAAAAHAAQAAAAIAAIAAAAHAAQAAAA=")
+tile_set = SubResource("TileSet_d7v64")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 1
+position = Vector2(0, 64)
+script = ExtResource("3_plr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_plr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Shadow" type="Area2D" parent="."]
+position = Vector2(448, -192)
+script = ExtResource("5_shd")
+prompt_text = "[Space] Approach Shadow"
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shadow"]
+modulate = Color(0.3, 0.1, 0.4, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_plr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow"]
+shape = SubResource("RectangleShape2D_shadow")
+
+[node name="PromptLabel" type="Label" parent="Shadow"]
+offset_left = -60.0
+offset_top = -50.0
+offset_right = 60.0
+offset_bottom = -30.0
+horizontal_alignment = 1
+text = "[Space] Approach"
+
+[node name="Item" type="Area2D" parent="."]
+position = Vector2(-320, 192)
+script = ExtResource("6_itm")
+prompt_text = "[Space] Pick up"
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="Sprite2D" type="Sprite2D" parent="Item"]
+modulate = Color(1, 0.85, 0.2, 1)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_plr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+shape = SubResource("RectangleShape2D_item")
+
+[node name="PromptLabel" type="Label" parent="Item"]
+offset_left = -50.0
+offset_top = -40.0
+offset_right = 50.0
+offset_bottom = -20.0
+horizontal_alignment = 1
+text = "[Space] Pick up"
+
+[node name="Note" type="Area2D" parent="."]
+position = Vector2(320, 256)
+script = ExtResource("7_note")
+prompt_text = "[Space] Read"
+dialogue_box_path = NodePath("../DialogueBox")
+
+[node name="Sprite2D" type="Sprite2D" parent="Note"]
+modulate = Color(0.8, 0.8, 1.0, 1)
+scale = Vector2(0.5, 0.7)
+texture = ExtResource("2_plr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Note"]
+shape = SubResource("RectangleShape2D_note")
+
+[node name="PromptLabel" type="Label" parent="Note"]
+offset_left = -50.0
+offset_top = -40.0
+offset_right = 50.0
+offset_bottom = -20.0
+horizontal_alignment = 1
+text = "[Space] Read"
+
+[node name="DialogueBox" type="CanvasLayer" parent="."]
+layer = 10
+process_mode = 3
+script = ExtResource("8_dlg")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="DialogueBox/PanelContainer/MarginContainer"]
+layout_mode = 2
+text = ""
+autowrap_mode = 2
