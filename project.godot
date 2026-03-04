@@ -17,7 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SceneManager="*res://core/scene_manager.gd"
 GameState="*res://scripts/game_state.gd"
+
+[display]
+
+window/size/viewport_width=2304
+window/size/viewport_height=1296
 
 [dotnet]
 
@@ -95,4 +101,5 @@ interact={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

@@ -4,6 +4,9 @@ extends CharacterBody2D
 
 func _ready():
 	add_to_group("player")
+	if SceneManager.spawn_position != Vector2.INF:
+		global_position = SceneManager.spawn_position
+		SceneManager.spawn_position = Vector2.INF
 
 func movement():
 	var input_direction = Input.get_vector("left", "right", "up", "down")

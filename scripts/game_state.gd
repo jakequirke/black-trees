@@ -38,13 +38,13 @@ func start_battle() -> void:
 	item_revealed_in_battle = false
 	player_hp = player_max_hp
 	player_mp = player_max_mp
-	get_tree().change_scene_to_file("res://scenes/battle.tscn")
+	SceneManager.change_scene("res://scenes/battle.tscn")
 
 func end_battle_victory() -> void:
 	shadow_healed = true
-	get_tree().change_scene_to_file("res://scenes/exploration.tscn")
+	SceneManager.change_scene("res://scenes/exploration.tscn")
 
 func end_battle_defeat() -> void:
 	player_hp = player_max_hp
 	player_mp = player_max_mp
-	get_tree().change_scene_to_file("res://scenes/exploration.tscn")
+	SceneManager.change_scene("res://scenes/exploration.tscn")
