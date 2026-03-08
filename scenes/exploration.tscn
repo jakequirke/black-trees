@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c87g8d7br6qrj" path="res://scripts/collectible_note.gd" id="7_note"]
 [ext_resource type="Script" uid="uid://cycwk1xrsaabe" path="res://scripts/dialogue_box.gd" id="8_dlg"]
 [ext_resource type="Script" uid="uid://wfacuch2n8vm" path="res://scripts/scene_exit.gd" id="9_exit"]
+[ext_resource type="AudioStream" uid="uid://ctfos8fy2iwrj" path="res://audio/village-ambience.mp3" id="11_nlph3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlph3"]
 texture = ExtResource("2_kdp48")
@@ -1185,3 +1186,8 @@ theme_override_constants/margin_bottom = 12
 [node name="Label" type="Label" parent="DialogueBox/PanelContainer/MarginContainer" unique_id=1149840319]
 layout_mode = 2
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=705999670]
+stream = ExtResource("11_nlph3")
+autoplay = true
+parameters/looping = true
