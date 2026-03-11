@@ -42,9 +42,9 @@ func start_battle() -> void:
 
 func end_battle_victory() -> void:
 	shadow_healed = true
-	SceneManager.change_scene("res://scenes/exploration.tscn")
+	SceneManager.change_scene("res://scenes/village-square.tscn")
 
 func end_battle_defeat() -> void:
 	player_hp = player_max_hp
 	player_mp = player_max_mp
-	SceneManager.change_scene("res://scenes/exploration.tscn")
+	SceneManager.change_scene("res://scenes/village-square.tscn")

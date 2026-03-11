@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Running the Project
 
-Open `project.godot` in the Godot 4.6 editor. The main scene is `scenes/exploration.tscn`.
+Open `project.godot` in the Godot 4.6 editor. The main scene is `scenes/main_menu.tscn`.
 
 Claude Code cannot run Godot directly — scene/node changes should be made by editing `.tscn` and `.gd` files. **Important:** Avoid overwriting `.tscn` tile_map_data or TileSet sub_resources — those are managed by Godot's editor. Only add/modify nodes and script references.
 
@@ -36,7 +36,9 @@ data/         # JSON content data (memories, dialogue)
 ## Architecture
 
 - **Player** (`scripts/player.gd`): CharacterBody2D with grid-based input movement using Godot's input map. Movement uses `left`/`right`/`up`/`down` actions (WASD + Arrow keys + gamepad).
-- **Main scene** (`scenes/exploration.tscn`): Root Node2D with TileMapLayer, Player, Shadow/Item/Note interactables, DialogueBox, and ExitToHome Area2D.
+- **Main menu** (`scenes/main_menu.tscn`): Start Game and Options buttons. Entry point of the game.
+- **Forest scene** (`scenes/forest.tscn`): First gameplay scene. Left exit leads to village, right side has collision wall.
+- **Village square** (`scenes/village-square.tscn`): Root Node2D with TileMapLayer, Player, Shadow/Item/Note interactables, DialogueBox, and ExitToHome Area2D.
 - **Home scene** (`scenes/home.tscn`): PC's home with Player and ExitToVillage Area2D.
 - **SceneManager** (`core/scene_manager.gd`): Autoload providing `change_scene(path, spawn_position)` with fade-to-black transitions.
 - **Scene exits** (`scripts/scene_exit.gd`): Reusable Area2D trigger with `@export var target_scene` and `@export var spawn_offset`.

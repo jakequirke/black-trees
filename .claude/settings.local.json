@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/jacobquirke/Desktop/black-trees/assets/house-assets-placeholder.png /Users/jacobquirke/Desktop/black-trees/assets/village_square_tileset.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/jacobquirke/Desktop/black-trees/assets/shadow-placeholder.png)",
+      "Bash(sed -i '' '2777s/.*/scale = Vector2\\(0.15, 0.15\\)/' /Users/jacobquirke/Desktop/black-trees/scenes/exploration.tscn && sed -i '' '2778d' /Users/jacobquirke/Desktop/black-trees/scenes/exploration.tscn && sed -i '' '2778s/.*/texture = ExtResource\\(\"12_shadow\"\\)/' /Users/jacobquirke/Desktop/black-trees/scenes/exploration.tscn)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/jacobquirke/Desktop/black-trees/assets/village_square_tileset.png /Users/jacobquirke/Desktop/black-trees/assets/house-assets-placeholder.png)",
+      "Bash(ls -la \"/Users/jacobquirke/Desktop/black-trees/.godot/imported/house-assets-placeholder.png-\"* 2>/dev/null)"
+    ]
+  }
+}

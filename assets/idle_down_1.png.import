@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ikfxwuw265k6"
-path="res://.godot/imported/WindowImage.jpg-be751eb62f5e7018ee1722fa4f66f33f.ctex"
+uid="uid://2iq8l1hjwo0u"
+path="res://.godot/imported/idle_down_1.png-f7d45149914a84c420f6d95eefea2570.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://audio/village-ambience.band/Alternatives/000/WindowImage.jpg"
-dest_files=["res://.godot/imported/WindowImage.jpg-be751eb62f5e7018ee1722fa4f66f33f.ctex"]
+source_file="res://assets/idle_down_1.png"
+dest_files=["res://.godot/imported/idle_down_1.png-f7d45149914a84c420f6d95eefea2570.ctex"]
 
 [params]
 

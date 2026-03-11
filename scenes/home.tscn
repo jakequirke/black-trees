@@ -1,6 +1,6 @@
 [gd_scene format=4]
 
-[ext_resource type="Texture2D" path="res://assets/player_idle.png" id="1_plr"]
+[ext_resource type="Texture2D" path="res://assets/idle_down_1.png" id="1_plr"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_plr"]
 [ext_resource type="Script" path="res://scripts/scene_exit.gd" id="3_exit"]
 
@@ -9,6 +9,15 @@ size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
 size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left_wall"]
+size = Vector2(32, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right_wall"]
+size = Vector2(32, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom_wall"]
+size = Vector2(416, 32)
 
 [node name="Home" type="Node2D"]
 
@@ -52,7 +61,7 @@ zoom = Vector2(3, 3)
 [node name="ExitToVillage" type="Area2D" parent="."]
 position = Vector2(0, -192)
 script = ExtResource("3_exit")
-target_scene = "res://scenes/exploration.tscn"
+target_scene = "res://scenes/village-square.tscn"
 spawn_offset = Vector2(-320, -256)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToVillage"]
@@ -65,3 +74,21 @@ offset_right = 60.0
 offset_bottom = -30.0
 horizontal_alignment = 1
 text = "Exit to Village"
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-208, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("RectangleShape2D_left_wall")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(208, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("RectangleShape2D_right_wall")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+position = Vector2(0, 208)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+shape = SubResource("RectangleShape2D_bottom_wall")
